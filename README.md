@@ -6,7 +6,7 @@ DisplayTerminal is a simple scrolling terminal emulator for ST7735 TFT displays 
 * Handles line wrapping and automatic scrolling
 * Simple interface for printing and clearing text
 
-### Installation
+### Import
 Add this to your `platformio.ini`:
 ```
 lib_deps = https://github.com/Taylor-eOS/DisplayTerminal.git
@@ -17,13 +17,10 @@ lib_deps = https://github.com/Taylor-eOS/DisplayTerminal.git
 #include <Arduino.h>
 #include <DisplayTerminal.h>
 
-DisplayTerminal term(5, 17, 16);
+DisplayTerminal terminal(5, 17, 16);
 
 void setup() {
-    term.init();
-    term.print("Hello World\n");
-}
-
-void loop() {
+    terminal.init();
+    terminal.print("Hello World");
 }
 ```
