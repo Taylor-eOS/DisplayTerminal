@@ -10,18 +10,18 @@ void setup() {
 
 void loop() {
     static int count = 1;
-    delay(1000);
+    delay(1400);
     int cycle = (count - 1) % 3;
     uint32_t free_heap = ESP.getFreeHeap();
     uint32_t uptime_ms = millis();
     if (cycle == 0) {
-        terminal.print("System status OK");
+        terminal.print("System status ok");
     }
     else if (cycle == 1) {
-        terminal.print(String(free_heap) + " bytes free heap");
+        terminal.print("Free heap: " + String(free_heap) + " bytes");
     }
     else {
-        terminal.print("Uptime " + String(uptime_ms) + "ms");
+        terminal.print("Uptime: " + String(uptime_ms) + "ms");
     }
     count++;
 }
