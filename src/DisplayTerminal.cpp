@@ -17,22 +17,6 @@ void DisplayTerminal::init() {
     buffer_size = 0;
 }
 
-void DisplayTerminal::addWrapped(const String& line) {
-    String l = line;
-    while (l.length() > 0) {
-        int len = min(max_cols, (int)l.length());
-        String sub = l.substring(0, len);
-        if (buffer_size >= max_rows) {
-            for (int i = 0; i < buffer_size - 1; i++) {
-                buffer[i] = buffer[i + 1];
-            }
-            buffer_size--;
-        }
-        buffer[buffer_size++] = sub;
-        l = l.substring(len);
-    }
-}
-
 void DisplayTerminal::print(const String& str) {
     String remaining = str;
     while (remaining.length() > 0) {
@@ -48,6 +32,27 @@ void DisplayTerminal::print(const String& str) {
         addWrapped(line);
     }
     redraw();
+}
+
+void DisplayTerminal::clear() {
+    buffer_size = 0;
+    tft.fillScreen(ST7735_BLACK);
+}
+
+void DisplayTerminal::addWrapped(const String& line) {
+    String l = line;
+    while (l.length() > 0) {
+        int len = min(max_cols, (int)l.length());
+        String sub = l.substring(0, len);
+        if (buffer_size >= max_rows) {
+            for (int i = 0; i < buffer_size - 1; i++) {
+                buffer[i] = buffer[i + 1];
+            }
+            buffer_size--;
+        }
+        buffer[buffer_size++] = sub;
+        l = l.substring(len);
+    }
 }
 
 void DisplayTerminal::redraw() {

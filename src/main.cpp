@@ -10,6 +10,7 @@ void setup() {
 
 void loop() {
     static int count = 1;
+    static int prints_before_clear = 0;
     delay(1400);
     int cycle = (count - 1) % 3;
     uint32_t free_heap = ESP.getFreeHeap();
@@ -24,4 +25,10 @@ void loop() {
         terminal.print("Uptime: " + String(uptime_ms) + "ms");
     }
     count++;
+    prints_before_clear++;
+    if (prints_before_clear >= 20) {
+        terminal.clear();
+        prints_before_clear = 0;
+    }
 }
+

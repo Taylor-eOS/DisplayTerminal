@@ -10,6 +10,7 @@ public:
     DisplayTerminal(int cs, int dc, int rst);
     void init();
     void print(const String& str);
+    void clear();
 private:
     Adafruit_ST7735 tft;
     String buffer[32];
