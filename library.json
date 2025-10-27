@@ -1,0 +1,25 @@
+{
+    "name": "DisplayTerminal",
+    "version": "1.0.0",
+    "description": "A simple scrolling terminal emulator for ST7735 TFT displays using Adafruit GFX library.",
+    "keywords": ["display", "terminal", "ST7735", "Adafruit"],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Taylor-eOS/DisplayTerminal.git"
+    },
+    "authors": [
+        {
+            "name": "Taylor-eOS",
+            "url": "https://github.com/Taylor-eOS"
+        }
+    ],
+    "homepage": "https://github.com/Taylor-eOS/DisplayTerminal",
+    "frameworks": ["arduino"],
+    "platforms": ["espressif32"],
+    "dependencies": {
+        "adafruit/Adafruit GFX Library": "^1.11.9",
+        "adafruit/Adafruit ST7735 and ST7789 Library": "^1.10.3"
+    },
+    "examples": ["examples/*"]
+}
+
